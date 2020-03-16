@@ -1,0 +1,37 @@
+ //javascript
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+ //body
+  <h1>get request ajax jquery dengan array</h1>
+    <form action="#">      
+        <button type="button" id="getRequest">kirim get</button>
+        <p></p>
+    </form>
+    
+//jquery
+
+    <script>
+    $(document).ready(function(){
+        $('#getRequest').click(function(){
+            $.get('/ambil_data', function(data){
+                console.log(data);
+                $('p').append(data + '<br>');
+
+            })
+        })
+    });
+    </script>
+    
+   //route
+   Route::get('/', function(){
+    return view ('index');
+});
+
+Route::get('/ambil_data', function(){
+    $var = ['shuni', 'nopi', 'dika'];
+    if(Request::ajax()){
+
+        return $var;
+    }
+});
+   
