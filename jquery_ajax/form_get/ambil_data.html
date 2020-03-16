@@ -1,0 +1,33 @@
+
+//link di head
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+//body
+ <h1>get request ajax jquery</h1>
+    <form action="#">      
+        <button type="button" id="getRequest">kirim get</button>
+    </form>
+ // script
+     <script>
+$(document).ready(function(){
+    $('#getRequest').click(function(){
+        $.get('/ambil_data', function(data){
+            console.log(data);
+            $('#getRequest').append(data);
+
+        })
+    })
+});
+    </script>
+    
+    =========================
+    //route
+    Route::get('/', function(){
+    return view ('index');
+});
+
+Route::get('/ambil_data', function(){
+    if(Request::ajax()){
+        return 'methode get berhasil di luncurkan';
+    }
+});
