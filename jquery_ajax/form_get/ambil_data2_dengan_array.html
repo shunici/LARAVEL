@@ -22,16 +22,28 @@
     });
     </script>
     
-   //route
-   Route::get('/', function(){
+Route::get('/', function(){
     return view ('index');
 });
 
-Route::get('/ambil_data', function(){
-    $var = ['shuni', 'nopi', 'dika'];
-    if(Request::ajax()){
+//matikan salah satu komentar dibawah ini
+// Route::get('/ambil_data', function(){
+//     $var = ['shuni', 'nopi', 'dika'];
+//     if(Request::ajax()){
 
-        return $var;
-    }
+//         return $var;
+//     }
+// });
+
+//atau dibawa ini 1
+Route::get('/ambil_data', function(){
+    return response('Hello World', 200);
 });
-   
+
+//atau dibawa ini 1
+Route::get('/ambil_data', function(){
+    return response()->json([
+        'name' => 'Abigail',
+        'state' => 'CA'
+    ]);
+});
