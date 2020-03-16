@@ -31,6 +31,27 @@ $(document).ready(function(){
     })
 });
     </script>
+    //ini adalah cara yang sama diatas
+        <script>
+$(document).ready(function(){
+    $('#getRequest').click(function(){
+       $.ajax({
+           type: "get",
+           url: "/ambil_data",
+           data: "data",
+           dataType: "json",
+           success: function (data) {
+              console.log(data);
+              $.each(data, function(i, value){
+            //    ini diambil dari database
+                $('p').append(value.nama + '<br>');
+                $('p').append(value.keterampilan + '<br>');
+            })
+           }
+       });
+    })
+});
+    </script>
 </body>
 </html>
 
