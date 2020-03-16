@@ -24,8 +24,8 @@ $(document).ready(function(){
             console.log(data);           
             $.each(data, function(i, value){
             //    ini diambil dari database
-                $('p').append(value.task + '<br>');
-                $('p').append(value.description + '<br>');
+                $('p').append(value.nama + '<br>');
+                $('p').append(value.keterampilan + '<br>');
             })
         })
     })
@@ -34,7 +34,8 @@ $(document).ready(function(){
 </body>
 </html>
 
-//routenya
+
+//route
 
 <?php
 
@@ -46,6 +47,7 @@ Route::get('/', function(){
 });
 
 Route::get('/ambil_data', function(){
-    $users = DB::table('tasks')->get();
+    $users = DB::table('profils')->get();
     return response()->json($users);
 });
+?>
