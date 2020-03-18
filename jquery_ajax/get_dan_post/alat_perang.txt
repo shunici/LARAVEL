@@ -20,7 +20,7 @@ $.ajaxSetup({
 
 ------------------------------------------------------------------------------------
 
-
+// ini ditaruh di middleware / VerifyCsrfToken.php
 
      /**
 
