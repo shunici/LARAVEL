@@ -7,6 +7,8 @@
     <title>Validasi ajax</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
@@ -40,21 +42,41 @@ $(document).ready(function(){
 
     $('form').submit(function(e){
         var CSRF_TOKEN = $('input[name="_token"]').attr('value');
+        var nama = $("input[name='nama']").val();
         var keterampilan = $("input[name='keterampilan']").val();
-        var nama =  $('#nama').val();
+        
         e.preventDefault();
         $.ajax({
             type: "post",
             url: "/pos_data",
             data: {
                 '_token' : CSRF_TOKEN,
-                nama :nama,
-                keterampilan:keterampilan,
+                nama : nama,
+                keterampilan : keterampilan,
             },
             dataType: "json",
             success: function (data) {
+                 
+
                 if($.isEmptyObject(data.error)){
-                alert(data.success);
+                    //mulai sweet alert
+                    const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                    })
+
+                    Toast.fire({
+                    icon: 'success',
+                    title: 'Berhasil ditambahkan',
+                    })
+                    //akhir sweet alert
                 }else{
                 printErrorMsg(data.error);
                 }
@@ -71,10 +93,7 @@ $(document).ready(function(){
     });
   
 });
-
 </script>
-
-
 </body>
 </html>
 
