@@ -16,19 +16,17 @@
    <div class="container">
        <div class="row">
            <div class="col-md-12">
-            <h1>membuat halaman pagination dengan ajax jquery</h1>
+               <div class="hapus">
+                <h1>membuat halaman pagination dengan ajax jquery</h1>
+                <h2>testing</h2>
+               </div>
+           
             @if (count($kirim) > 0)
             <section class="articles">
                     <div id="load" style="position: relative;">
-                        @foreach($kirim as $kirim_1)
-                            <div>
-                                <h3>
-                                    <a href="{{$kirim_1->id}}">{{$kirim_1->nama }}</a>
-                                </h3>
-                            </div>
-                        @endforeach
+                       @include('pagination')
                         </div>
-                        {{ $kirim->links() }}
+                       
              </section>
             @endif
             
@@ -53,16 +51,19 @@ $(function() {
         $.ajax({
             url : url
         }).done(function (data) {
-            $('.articles').html(data);  
+            var isi = $('.articles').html(data);  
             // alert(data);
+            // $('.hapus').last().remove();
         }).fail(function () {
             alert('Articles could not be loaded.');
         });
     }
 });
-//pada pagination ini mengguakan history.pushStat yang mana data itu sudah diload secara keseluruhan tetapi disembunyikan
-//coba buka alert data yang berkomentar diatas maka akan tahu cara kerja sistem pagination ini.. sistem akan membaca data keselurhan html makanya terjadi //penulisan double h1 judul pada contoh diatas, untuk mengakali kejadian tersebut foreach tersebut harus dibuat terpisah filenya dengan menggunakan blade templating includ
-    </script>  
+//pada pagination ini mengguakan history.pushStat yang mana data itu sudah diload secara keseluruhan tetapi disembunyikan secara bakground browser
+//coba buka alert data yang berkomentar diatas maka akan tahu cara kerja sistem pagination ini.. sistem akan membaca data keselurhan html makanya terjadi //penulisan double h1 pada contoh diatas, untuk mengakali kejadian tersebut dibuatlah selector hapus dengan metode remove
+
+    </script>
+   
 
 </body>
 </html>
