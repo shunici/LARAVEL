@@ -101,3 +101,13 @@ Route::post('/post_data', function(Request $request){
 //    return response()->json(['berhasil'=>'belajar lah lagi dengan giat sampai mati.']);
 });
 ?>
+
+//cara lain pada script jquery tapi agak panjang
+   var keterampilan = [];
+           $('input').each(function(){
+                if($(this).is(":checked"))
+                {
+                     keterampilan.push($(this).val());
+                }
+           });
+           keterampilan = keterampilan.toString();
