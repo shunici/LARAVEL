@@ -67,6 +67,17 @@ $(function() {
 
 </body>
 </html>
+//======================pagination
+
+@foreach($kirim as $kirim_1)
+<div>
+    <h3>
+        <a href="{{$kirim_1->id}}">{{$kirim_1->nama }}</a>
+    </h3>
+</div>
+@endforeach
+{{ $kirim->links() }}
+
 
 //route
 <?php
