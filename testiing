@@ -5,18 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <title>print</title>
 </head>
 
-<body>
+<body class="text-center">
     <div class="noprint">
-        <button>test</button>
-    </div>
-    <label for="image_title">Title</label>
+        <button class="text-center">
+            <h3>print</h3>
+        </button>
 
-    <page size="A5" layout="landscape">
+    </div>
+
+
+    <page size="A4" layout="potrait">
         <p>nama orang </p>
         <div class="conten">
 
@@ -27,19 +31,11 @@
             </div>
 
         </div>
-
-
-
-
-
-
-
-
     </page>
 </body>
 <script>
     $(document).ready(function () {
-        $(this).click(function () {
+        $('button').click(function () {
             window.print();
         })
     })
@@ -64,7 +60,6 @@
 
 </html>
 
-css//
 body {
     background: rgb(204, 204, 204);
 }
@@ -78,14 +73,11 @@ page {
 }
 
 
-page[size="A5"] {
-    width: 14.8cm;
-    height: 21cm;
-}
 
-page[size="A5"][layout="landscape"] {
+
+page[size="A4"][layout="potrait"] {
     width: 21cm;
-    height: 14.8cm;
+    height: 29.7cm;
 
 }
 
@@ -99,7 +91,7 @@ page[size="A5"][layout="landscape"] {
 
 p {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 40px;
 
 }
 
@@ -109,19 +101,20 @@ p {
     }
 }
 
+
+
 .uploader {
     position: relative;
-    overflow: hidden;
-    width: 18cm;
-    height: 10cm;
-    background: #f3f3f3;
+    width: 21cm;
+    height: 20cm;
+    background: white;
     border: 2px dashed #e8e8e8;
 }
 
 #filePhoto {
     position: absolute;
-    width: 18cm;
-    height: 10cm;
+    width: 20cm;
+    height: 16cm;
     top: -50px;
     left: 5px;
     z-index: 2;
@@ -135,7 +128,7 @@ p {
     height: auto;
 
     top: -1px;
-    left: 160px;
+    left: 190px;
     z-index: 1;
     border: none;
 }
