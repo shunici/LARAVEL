@@ -1,1 +1,2 @@
 route::controller tidak bisa lagi dipakai
+https://laracasts.com/discuss/channels/laravel/implicit-controllers-laravel-54
