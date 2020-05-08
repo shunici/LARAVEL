@@ -10,4 +10,12 @@ https://yajrabox.com/docs/laravel-datatables/7.0/html-installation
 
 lalu klik php artisan
 kemudian cek ada command baru "datatable"
+lihat juga pada vendor ada folder yajra
 jika ada berarrti sukses
+
+untuk memulai silahkan ketik di command prompt
+klik 
+php artisan datatables:make user --model
+
+seketika pada folder app tercipta folder user lengkap dengan modelnya
+siap saji dan selesai
