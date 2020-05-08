@@ -19,3 +19,8 @@ php artisan datatables:make user --model
 
 seketika pada folder app tercipta folder user lengkap dengan modelnya
 siap saji dan selesai
+
+untuk memulai pengeditan 
+buka folder yang baru tercipta
+dan perhatikan bagian  return $this->builder() di dalamnya ada column yang merupakan fungsi
+protected function getColumns() inilah data apa saja yang hendak diqueri sesuai nama field di database
