@@ -1,1 +1,13 @@
-tes
+https://yajrabox.com/docs/laravel-datatables/master/installation
+
+composer require yajra/laravel-datatables-oracle:"~9.0"
+composer require yajra/laravel-datatables:^1.5
+php artisan vendor:publish --tag=datatables
+
+versi lain
+silahkan install sesuai petunjuk
+https://yajrabox.com/docs/laravel-datatables/7.0/html-installation
+
+lalu klik php artisan
+kemudian cek ada command baru "datatable"
+jika ada berarrti sukses
