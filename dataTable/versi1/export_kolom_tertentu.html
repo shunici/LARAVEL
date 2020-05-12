@@ -1,0 +1,44 @@
+   <script>
+       $(document).ready(function(){
+        $('#users-table').DataTable({
+            processing : true,
+            serverside : true,
+            ajax : '{{route('data-index')}}',
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Indonesian-Alternative.json"
+            },
+            columns : [
+                {data : 'id', name : 'id'},
+                { data : 'pesan', name : 'pesan'},
+                {data : 'foto', name: 'foto'} ,
+                {data : 'user', name : 'user.name'},
+                {data : 'created_at', name : 'created_at'} ,
+                {data : 'action', name : 'action'}            
+              
+            ],
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'pdf',
+                    footer: true,
+                    exportOptions: {
+                            columns: [1,2,4]
+                        }
+                },
+                {
+                    extend: 'csv',
+                    footer: false
+                    
+                },
+                {
+                    extend: 'excel',
+                    footer: false
+                }         
+                ]  
+         
+            
+        })
+
+       })
+
+        </script>  
