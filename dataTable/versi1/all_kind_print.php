@@ -1,3 +1,6 @@
+//sumber
+https://gilacoding.com/read/export-3-file-dan-print-langsung-menggunakan-datatables-php-laravel
+
 harap sudah install yajra, jessengers, 
 //data.blade.php
 <!DOCTYPE html>
