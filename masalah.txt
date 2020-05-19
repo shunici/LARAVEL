@@ -1,2 +1,9 @@
 route::controller tidak bisa lagi dipakai
 https://laracasts.com/discuss/channels/laravel/implicit-controllers-laravel-54
+
+
+complex header datatable tidak bisa dipaka saat print =>lihat refrensi
+https://stackoverflow.com/questions/19426972/datatables-not-working-when-added-colspan-for-the-last-column
+
+situs resmi
+https://datatables.net/release-datatables/examples/basic_init/complex_header.html
