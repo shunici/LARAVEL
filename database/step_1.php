@@ -32,7 +32,7 @@ public function up()
     });
 }
 
-//langkah 3 relasi data daro produk ke kategori
+//langkah 3 relasi data dari produk ke kategori
 php artisan make:migration add_relationships_to_products_table
 
 
@@ -76,7 +76,30 @@ composer require doctrine/dbal
 aktifkan database
 
 
+contoh dengan bigInteger
+      public function up()
+    {
+        Schema::table('produks', function (Blueprint $table) {
+            $table->bigInteger('bahan_id')->unsigned()->change();
+            $table->foreign('bahan_id')->references('id')->on('bahans')
+                ->onUpdate('cascade')->onDelete('cascade');
 
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('produks', function (Blueprint $table) {
+            $table->dropForeign('produks_bahan_id_foreign');
+            $table->dropIndex('produks_bahan_id_foreign');
+            $table->bigInteger('bahan_id')->change();
+        });
+    }
 
 
 />
