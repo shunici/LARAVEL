@@ -9,7 +9,7 @@ public function up()
 {
     Schema::create('categories', function (Blueprint $table) {
         $table->increments('id');
-        $table->string('name');
+        $table->string('nama_kategori');
         $table->string('description')->nullable();
         $table->timestamps();
     });
@@ -101,5 +101,12 @@ contoh dengan bigInteger
         });
     }
 
+tampilkan
+    //controller
+$produk = produk::with('category')->get();
+//blade
+foreach($produk as $item)
+$item->categori->nama_kategori
+endforeach
 
 />
