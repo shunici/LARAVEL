@@ -70,7 +70,7 @@ use App\Rules\hobiValidasi;
         if ($validator->passes()) {
             return response()->json([
                 'sukses'=> $request->hobi,
-               'url' => "/record_stok",              
+               'url' => "/terserah",              
                 ]);
         }
         return response([
@@ -98,5 +98,39 @@ view blade php.
 
 sumber ilmu
 https://www.youtube.com/watch?v=bsKOhgflCmI
+
+
+/// menggunakan closure (langsung di controlller) ini bisa dimanfaatkan ketika ada proses query dari database
+
+//controller 
+ public function store(Request $request)
+    {
+        $validator = validator::make($request->all(),[
+            'nama' => 'required',
+            'hobi' => [
+                'required',
+                function ($attribute, $value, $fail){
+
+                    if ($value == 'programming') {
+                       return true;
+                    }
+                    $fail($attribute. ' ini bukan hobi anda shunici');
+                },
+            ],
+
+        ]);         
+
+        if ($validator->passes()) {
+            return response()->json([
+                'sukses'=> 'berhasil coy',
+               'url' => "/terserah",              
+                ]);
+        }
+        return response([
+            'error' => $validator->errors()->all()
+        ]);
+    }
+
+
 
 />
