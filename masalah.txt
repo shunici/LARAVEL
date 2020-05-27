@@ -10,3 +10,6 @@ https://datatables.net/release-datatables/examples/basic_init/complex_header.htm
 
 str_slug()
 https://stackoverflow.com/questions/57864711/call-to-undefined-function-str-slug-in-laravel-6-0
+
+//masasalah belum terpecahkan
+aku ingin membuat button disable pada waktu tertentu, misalnya jika field created dibuat hari ini disable button false, jika field created_at bukan hari ini button disable true
