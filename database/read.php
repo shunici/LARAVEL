@@ -15,7 +15,30 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
  //sort dengan urutan
    $data = DB::table('bahans')->orderBy('kategori', 'desc')->get();
  
- 
+ //datatable 1 kolom tabel 2 data field database query, cth 2 roll (2 adalah field angka, roll adalah field satuan dari DB yang sama
+ public function show (Request $request, $id)
+    {        
+        if($request->ajax())
+        {
+            $data = record_stok::with('bahan')->where('bahan_id', $id)->orderBy('created_at', 'DESC')->latest()->get();;
+            return DataTables::of($data)
+                    ->addColumn('aksi', function($data){          
+                        $button = ' <a href="#" data-name="'.$data->stok.'"  class="hapus btn btn-danger btn-sm"  data-id="'.$data->id.'"><i class="fa fa-trash"></i> Hapus</a>';
+                        return $button;
+                    })
+                    ->rawColumns(['aksi'])
+                    ->editColumn('input', function(record_stok $tes) {
+                            $input = $tes->input;
+                            $input .= ' ';
+                            $input .= $tes->bahan->satuan;
+                        return $input;
+                    })              
+                    ->make(true);
+        }   
+        $nama_bahan_id = $id;
+        $nama_bahan = bahan::find($id)->nama;
+        return view ('bahan_area.record_stok.show',compact('nama_bahan_id', 'nama_bahan') );
+    }
  
  
  
