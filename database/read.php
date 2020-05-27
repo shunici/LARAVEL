@@ -40,7 +40,8 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
         return view ('bahan_area.record_stok.show',compact('nama_bahan_id', 'nama_bahan') );
     }
  
- 
+ collumns di view blade table
+    { data : 'input', name : 'input.satuan'},
  
  
  
