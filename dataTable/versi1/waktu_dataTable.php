@@ -6,7 +6,7 @@ posisi di controller
 
 
 // output jum'at, 20 mei 2020
- $data = record_stok::with('bahan')->where('bahan_id', $id)->orderBy('created_at', 'DESC')->latest()->get();;
+ $data = record_stok::all();
             return DataTables::of($data)                    
                     ->editColumn('created_at', function ($data) {
                         return  Date::parse($data->created_at)->format('l, j F Y');
