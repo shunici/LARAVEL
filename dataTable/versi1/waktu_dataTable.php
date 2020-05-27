@@ -1,3 +1,10 @@
+composer require jenssegers/date
+config app.php
+provider
+Jenssegers\Date\DateServiceProvider::class,
+
+aliases
+'Date' => Jenssegers\Date\Date::class,
 <?php
 
 posisi di controller
