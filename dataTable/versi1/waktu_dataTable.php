@@ -1,4 +1,4 @@
-</php
+<?php
 
 posisi di controller
  date_default_timezone_set('Asia/Jakarta');
