@@ -27,12 +27,13 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
                         return $button;
                     })
                     ->rawColumns(['aksi'])
-                    ->editColumn('input', function(record_stok $tes) {
+                   ->editColumn('input', function($tes)use($id) {
+                            $satuan = bahan::find($id);
                             $input = $tes->input;
                             $input .= ' ';
-                            $input .= $tes->bahan->satuan;
+                            $input .= $satuan->satuan;
                         return $input;
-                    })              
+                    })            
                     ->make(true);
         }   
         $nama_bahan_id = $id;
