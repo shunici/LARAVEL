@@ -8,7 +8,9 @@
  dd($data);
  
  
- 
+ // akses dengan id foreign tertentu dengan array
+$data = DB::table('record_stoks')->where('bahan_id', $id);
+akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field database
  
  
  
