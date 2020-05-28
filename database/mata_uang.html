@@ -1,0 +1,24 @@
+penggunaannya pada tabel blade atau di htmlnya di jquerynya pada tabel kolom
+https://datatables.net/forums/discussion/36025/currency-formatting
+
+<script>
+
+ columns : [
+           {data : 'id', name : 'id'},
+           { data : 'nama', name : 'nama'},                             
+           {data : 'umum', name: 'umum', render: $.fn.dataTable.render.number( ',', '.', 0, 'Rp. ' )}
+          ],          
+ //hasil output Rp. 26,000
+ 
+   {data : 'umum', name: 'umum', render: $.fn.dataTable.render.number( '.', '.', 0, 'Rp ' )},
+   hasil output 	Rp 26.000
+   
+    {data : 'umum', name: 'umum', render: $.fn.dataTable.render.number( ',', '.', 3, 'Rp. ' )},
+     hasil output Rp. 26,000.000
+     
+     
+</script>
+
+
+untuk format uang secara PHP
+https://irfanmg.com/format-mata-uang-rupiah-menggunakan-laravel-blade/
