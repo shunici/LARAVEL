@@ -1,0 +1,13 @@
+pada datatable cara menggunakannya terletak pada jquery
+https://datatables.net/forums/discussion/32706/format-phone-numbers
+<script>
+ {
+ data : 'hp', name: 'hp' , render: function ( toFormat ) {
+     var tPhone;
+     tPhone=toFormat.toString();            
+     tPhone= tPhone.substring(0,4 ) + ' ' + tPhone.substring(2,6) + ' ' + tPhone.substring(6,10);   
+     return tPhone }
+  },
+  
+  output hasill 0859 6596 4568
+</script>
