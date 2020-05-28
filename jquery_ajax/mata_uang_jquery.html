@@ -65,3 +65,12 @@ https://jsfiddle.net/ac8Lh7tn/
 </script>
 
 cara ini juga bisa dipakai untuk nomor handphone 
+
+
+saat menyimpan ke database, lakukan proses di controller untuk menghilangkan tanda titik dan koma
+<?php
+$a = "1.43,23";
+$b = preg_replace('/[.,]/', '', $a);
+echo $b;
+?>
+//output 14323 
