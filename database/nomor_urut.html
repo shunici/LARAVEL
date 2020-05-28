@@ -1,0 +1,40 @@
+diletakkan di jquery
+
+<script>
+$(document).ready(function() {
+    var t = $('#example').DataTable( {
+        "columnDefs": [ {
+            "searchable": false,
+            "orderable": false,
+            "targets": 0
+        } ],
+        "order": [[ 1, 'asc' ]],
+        
+      processing : true,
+      serverside : true,
+      ajax : "{{route('suplier-index')}}",
+      columns : [
+        {data : 'id', name : 'id'},
+        { data : 'nama', name : 'nama'},
+        {data : 'alamat', name: 'alamat'},
+        {data : 'hp', name: 'hp' , render: function ( toFormat ) {
+            var tPhone;
+            tPhone=toFormat.toString();            
+            tPhone= tPhone.substring(0,4 ) + ' ' + tPhone.substring(2,6) + ' ' + tPhone.substring(6,10);   
+            return tPhone }
+        },
+        {data : 'spesifikasi', name: 'spesifikasi'},
+        {data : 'email', name : 'email'},                             
+        {data : 'aksi', name : 'aksi', orderable : false, searchable:false, printable:false}
+                               
+        ],                                             
+        
+    } );
+ 
+    t.on( 'order.dt search.dt', function () {
+        t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+            cell.innerHTML = i+1;
+        } );
+    } ).draw();
+} );
+</script>
