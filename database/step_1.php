@@ -1,5 +1,8 @@
 <?php 
 
+satu hal yang penting!!!!!
+    ketika hendak melakukan relasi data, usahakan data id yang berelasi masih ada, sebab jika tidak ada maka tidak bisa dieksekusi
+
 ///////////satu ke banyak ////////////
 // langkah 1
 php artisan make:model Category -m
