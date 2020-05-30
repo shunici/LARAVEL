@@ -1,4 +1,6 @@
- dom: 'Bfrtip',
+koding ini berfungsi untuk melihat data table yang terlalu banyak 
+
+dom: 'Bfrtip',
                              buttons: [
                                 {extend: 'colvis', postfixButtons: [ 'colvisRestore' ] },
                                     {
