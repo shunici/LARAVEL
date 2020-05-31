@@ -13,3 +13,9 @@ https://stackoverflow.com/questions/57864711/call-to-undefined-function-str-slug
 
 //masasalah belum terpecahkan
 aku ingin membuat button disable pada waktu tertentu, misalnya jika field created dibuat hari ini disable button false, jika field created_at bukan hari ini button disable true
+
+
+// mengeskport data dari excel ke mysql secara banyak
+package maatwebsite
+https://github.com/shunici/LARAVEL/edit/master/masalah.txt
+masih belum terpecahkan 
