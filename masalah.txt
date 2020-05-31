@@ -19,3 +19,7 @@ aku ingin membuat button disable pada waktu tertentu, misalnya jika field create
 package maatwebsite
 https://github.com/shunici/LARAVEL/edit/master/masalah.txt
 masih belum terpecahkan 
+
+
+
+//tips jika kamu tidak bisa menggunakan if sebagai kondisi, gunakankan lah hasClass dan true
