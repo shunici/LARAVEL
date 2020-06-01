@@ -23,7 +23,7 @@ $(document).ready(function(){
                      console.log(data.sukses);
                     //  window.location.reload();
                     }else{
-                      printErrorMsg(data.error);
+                     console.log(data.error);
                     }                   
                   }
               });   
