@@ -6,7 +6,13 @@
  //pilih nama tertentu berdasarkan id foreignkey (berarrti ada array yang dimiliki id foreign key)
  $data = DB::table('record_stoks')->select('input')->where('bahan_id', $id)->get();
  dd($data);
+
+//cth mencari user_id pada tabel karyawan
+ $user_id =  Auth::user()->id;
+$karyawan = karyawan::where('user_id', $user_id)->first();
+echo $karyawan;
  
+metode first() berfungsi untuk mencatat record pertama
  
  // akses dengan id foreign tertentu dengan array
 $data = DB::table('record_stoks')->where('bahan_id', $id);
