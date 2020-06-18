@@ -1,0 +1,90 @@
+https://codepen.io/jean2607/pen/gzPGNd
+https://datatables.net/examples/advanced_init/footer_callback.html
+jika menggunakan ini footer harus true ketika mau memprint
+
+<table class="table table-bordered  " id="example">
+    <thead>               
+    <tr>
+      <th>No</th>
+      <th>Pelanggan</th>
+      <th>Nama File</th>
+      <th>Ket Data</th>                             
+      <th>Uk</th>
+      <th>Qty</th>                                                                        
+      <th>Keterangan</th>
+      <th>Status PLG</th>  
+      <th>Total</th>                       
+      <th>Aksi</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+    <tfoot>
+        <th colspan="8" style="text-align:right">Total:</th>
+                <th></th>
+    </tfoot>
+</table>
+
+
+
+
+
+
+pada contoh dibawah ini menggunaakan kolom 8
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            { extend: 'copyHtml5', footer: true },
+            { extend: 'excelHtml5', footer: true },
+            { extend: 'csvHtml5', footer: true },
+            { extend: 'pdfHtml5', footer: true }
+        ],
+          "footerCallback": function ( row, data, start, end, display ) {
+          var api = this.api(), data;
+
+          // Remove the formatting to get integer data for summation
+          var intVal = function ( i ) {
+              return typeof i === 'string' ?
+                  i.replace(/[\$,]/g, '')*1 :
+                  typeof i === 'number' ?
+                      i : 0;
+          };
+
+          // Total over all pages
+          total = api
+              .column( 8 )
+              .data()
+              .reduce( function (a, b) {
+                  return intVal(a) + intVal(b);
+              }, 0 );
+
+          // Total over this page
+          pageTotal = api
+              .column( 8, { page: 'current'} )
+              .data()
+              .reduce( function (a, b) {
+                  return intVal(a) + intVal(b);
+              }, 0 );
+
+
+          // Total filtered rows on the selected column (code part added)
+          var sumCol4Filtered = display.map(el => data[el][4]).reduce((a, b) => intVal(a) + intVal(b), 0 );
+          //uang indo
+          var totalSatu = parseInt(pageTotal).toLocaleString();
+          var totalDua = parseInt(total).toLocaleString();
+          // Update footer
+          $( api.column( 8 ).footer() ).html(
+
+              'Rp '+totalSatu +' <br>  (Rp '+ totalDua +' total) <br> (Rp ' + sumCol4Filtered +' filtered)'
+          );
+         }   //tutup foter callback    
+    } ); //tutup datatable
+} ); //tutup ready
+
+</script>
+penjumlahan pada kolom footer th td, operasi bilangan pada datatable
+penting untuk penghitungan data
+
