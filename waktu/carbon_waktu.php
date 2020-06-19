@@ -28,7 +28,14 @@ diffInMinutes();
 diffInHours();  
 diffInDays(); 
   
-  
+  ===========================
+ misalnya data dibuat jam 5, kemudian ditambah menitnya 60 menit. saat itu jam 5:30 berrati tinggal 30 menit lagi
+$tampil = Date::parse($cek_absen->created_at)->addMinutes(60)->diffForHumans();  
+dd($tampil);
+hasil 30  menit dari sekarang 
+  //artinya 30 menit lagi menuju jam 6
+
+ 
   
 ?>  
 
