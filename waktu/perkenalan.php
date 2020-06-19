@@ -22,9 +22,19 @@ use Carbon\Carbon;
    //hasil februari
 });
 
-
-
-
+========================
+$date= Carbon::now();
+$waktu = \Date::parse($date)->format('Y-m-d H');
+dd($waktu);
+tampil
+"2020-06-20 00"
+ 
+ ===================
+ 
+$date= Carbon::now();
+$waktu = \Date::parse($date)->format('l, j F Y');
+dd($waktu);
+"Sabtu, 20 Juni 2020"
 
 
 
