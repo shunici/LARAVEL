@@ -40,7 +40,12 @@ hasil 30  menit dari sekarang
 echo $kolom;
 hasil 1 menit 10 detik
   mengubah angka mejadi menit atau detik dll
-  
+  ================mencari menitnya saja dengan pembulatan tanpa koma
+$detik = 1000;
+$menit = floor($detik/60); hasilnya 16,6 tapi dibulatkan menjadi 16
+$kolom = \Carbon\CarbonInterval::minute($menit);
+echo $kolom;
+hasilnya 16 menit
 ?>  
 
 
