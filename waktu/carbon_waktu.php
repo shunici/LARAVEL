@@ -1,5 +1,9 @@
 <?php 
 perlu diperhatikan ketika menggunakan waktu harus disetting dahulu waktu local timezonenya
+  controller
+  use Jenssegers\Date\Date;
+use Carbon\Carbon;
+  =========
 
 $waktu = Date::now();  
 tampilkan waktu sekarang  
@@ -17,7 +21,7 @@ dd($waktu);
 =====================================================
 $waktu = Date::parse($data->created_at)->diffInSeconds();
 dd($waktu);
-//hasil dari 1 dan seterusnya mewakili dari detik sejak data dibuat
+//hasilnya mulai dari 1 detik dan seterusnya mewakili dari detik pertama sejak data dibuat
 fungsi lainnya ::
  diffInSeconds();  
 diffInMinutes(); 
