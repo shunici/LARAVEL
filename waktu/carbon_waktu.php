@@ -35,7 +35,11 @@ dd($tampil);
 hasil 30  menit dari sekarang 
   //artinya 30 menit lagi menuju jam 6
 
- 
+ ============================
+    $kolom = \Carbon\CarbonInterval::seconds(70)->cascade();
+echo $kolom;
+hasil 1 menit 10 detik
+  mengubah angka mejadi menit atau detik dll
   
 ?>  
 
