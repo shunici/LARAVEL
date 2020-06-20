@@ -8,6 +8,10 @@ use Carbon\Carbon;
 $waktu = Date::now();  
 tampilkan waktu sekarang  
   
+   $tes = date("Y-m-d");
+    dd($tes);
+hasil //"2020-06-20"
+  
   Date::parse($data->created_at)->format('l, j F Y');
  \Date::parse($waktu)->format('l, j F Y');
 tampinya Senin, 8 Juni 2020 
