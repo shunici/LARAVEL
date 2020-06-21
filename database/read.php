@@ -21,6 +21,31 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
  //sort dengan urutan
    $data = DB::table('bahans')->orderBy('kategori', 'desc')->get();
  
+
+//read query berdasarkan tahun dan bulan dan lain lain
+  $database = kehadiran::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  //datatable 1 kolom tabel 2 data field database query, cth 2 roll (2 adalah field angka, roll adalah field satuan dari DB yang sama
  public function show (Request $request, $id)
     {        
