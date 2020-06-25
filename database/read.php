@@ -9,6 +9,15 @@ database::orderBy('created_at', 'DESC')->get();
  $data = DB::table('record_stoks')->select('input')->where('bahan_id', $id)->get();
  dd($data);
 
+// query data berdasarkan id atau value
+   $aktivitas = aktivitas::where('karyawan_id', 1)->get();
+       dd($aktivitas);
+//maka query hasilnya mencari data (array) pada semua field yang mempunyai karyawan_id 1
+
+
+
+
+
 //cth mencari user_id pada tabel karyawan
  $user_id =  Auth::user()->id;
 $karyawan = karyawan::where('user_id', $user_id)->first();
