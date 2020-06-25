@@ -20,7 +20,7 @@ dd($aktivitas[0]['jabatan']);
  $aktivitas = aktivitas::where('karyawan_id', $karyawan->id)->get();
        $nota_id = array();
         foreach($aktivitas as $aksi){
-            $nota_id[] = $aksi->karyawan->id;
+            $nota_id[] = $aksi->karyawan_id;
         }        
         dd($nota_id);
 
