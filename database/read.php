@@ -18,11 +18,11 @@ dd($aktivitas[0]['jabatan']);
 //ini berarti dd mencari data jabatan pada field jabatan pada tabel aktivitas
 //bisa melakukan pengembalian dengan cara ini
  $aktivitas = aktivitas::where('karyawan_id', $karyawan->id)->get();
-       $nota_id = array();
+       $karyawan_id = array();
         foreach($aktivitas as $aksi){
-            $nota_id[] = $aksi->karyawan_id;
+            $karyawan_id[] = $aksi->karyawan_id;
         }        
-        dd($nota_id);
+        dd($karyawan_id);
 
 
 
