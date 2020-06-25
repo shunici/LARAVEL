@@ -12,8 +12,10 @@ database::orderBy('created_at', 'DESC')->get();
 // query data berdasarkan id atau value
    $aktivitas = aktivitas::where('karyawan_id', 1)->get();
        dd($aktivitas);
-//maka query hasilnya mencari data (array) pada semua field yang mempunyai karyawan_id 1
-
+//maka query hasilnya mencari data (array) pada semua field yang mempunyai karyawan_id 1, akan tetapi array dihasilkan berdasarkan nilai index
+//jika ingin menampilkan datanya berdasarkan value bisa melalu foreach atau seperti dibawah ini
+dd($aktivitas[0]['jabatan']);
+//ini berarti dd mencari data jabatan pada field jabatan pada tabel aktivitas
 
 
 
