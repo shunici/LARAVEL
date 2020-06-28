@@ -2,6 +2,10 @@
 //read paling akhir
  $stok_records = DB::table('record_stoks')->where('bahan_id', 2)->latest()->first();
  
+//mengambil data cuma satu di urutan paling terakhir berdasarkan updated_at
+$id_pengaturan = DB::table('pengaturan_kerjas')->latest()->first();
+$id_pengaturan = pengaturan_kerja::orderBy('updated_at', 'desc')->latest()->first();
+
 //read data paling baru
 database::orderBy('created_at', 'DESC')->get(); 
  
