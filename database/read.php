@@ -50,7 +50,10 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
 
 
 
-
+// mengitung isi tabel yang values nya sama 
+   $model->where('status', 'H')->where('karyawan_id', 2)->count();
+//modal adalah tabel database yang isi fieldnya status memiliki value H, kemudian fungsi count() menghitung
+//ada berapa status H pada karyawan_id 2, seketika akan dihitung
 
 
 
