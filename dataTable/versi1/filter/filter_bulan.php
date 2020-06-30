@@ -63,8 +63,7 @@
 } //tutup fungsi
  $('#proses_filter').click(function(e){
     e.preventDefault();
-    var filter = $('#datepicker').val();
-    var to_date = $('#to_date').val();
+    var filter = $('#datepicker').val(); 
     if(filter != '')
         {
         $('#users-table').DataTable().destroy();
