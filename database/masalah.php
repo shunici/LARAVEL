@@ -10,3 +10,14 @@
         }
         
  koding  diatas tak bisa dieksekusi karna kinerja mempunyai waktu
+ 
+  solusinya seperti ini
+   $karyawans = karyawan::all();
+ $kinerjas = kinerja::all();
+        foreach($karyawans as $karyawan){
+           foreach ($kinerjas as $kinerja){
+                if($karyawan->id == $kinerja->karyawan_id){
+                    return response()->json('berhasil');
+                }
+           }          
+        }
