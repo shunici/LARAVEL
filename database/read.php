@@ -60,18 +60,6 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
  //datatable 1 kolom tabel 2 data field database query, cth 2 roll (2 adalah field angka, roll adalah field satuan dari DB yang sama
  public function show (Request $request, $id)
     {        
@@ -101,7 +89,8 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
  collumns di view blade table
     { data : 'input', name : 'input.satuan'},
  
- 
+ //penggunaan limit database memungkin untuk mengambil data cuma beberapa saja
+https://laracasts.com/discuss/channels/laravel/how-do-i-update-only-one-column-per-row-satisfy-the-conditions
  
  
  
