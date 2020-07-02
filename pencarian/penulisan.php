@@ -29,3 +29,5 @@ use Jenssegers\Date\Date; //untuk
        
     return view('transaksi.index',compact('tabel', 'time'));
     }
+
+cara menaruh 2 tabel di controller pada searching
