@@ -1,8 +1,33 @@
-
+https://stackoverflow.com/questions/24109535/how-to-update-column-value-in-laravel
 edit database cuma satu kolom
-dalam field tabel ada kolom kehadiran, teliti, kerajinan dan lain2..ketika kita ingin mengupdate satu saja tanpa mengurai satu-satu diperlukan koding dibawah ini
+<?php
 
- $kinerja = kinerja::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)->first();
-$kinerja->where('karyawan_id', $karyawan->id)->take(1)->update([
-               'kehadiran' => 'tess'
-           ]);
+
+ public function update(Request $request)
+    {
+        $id = $request->id_record_gajih;
+            record_gajih::where('id', $id)
+            ->update(array(
+                'lain_lain'=> $request->lain_lain,
+                'keterangan' => $request->keterangan,
+                )
+        );
+        return response()->json('berhasil');
+
+    }
+
+update cuma satu field di data base
+ 
+ dibawah ini lebih simpel
+  public function update(Request $request)
+    {
+        $id = $request->id_record_gajih;
+       $record = record_gajih::find($id);
+        if($record) {
+           $record->lain_lain = $request->lain_lain;
+           $record->save();
+       }
+       
+        return response()->json('berhasil');
+
+    }
