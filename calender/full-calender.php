@@ -1,0 +1,13 @@
+// composer require laravel-fullcalendar
+<php 
+'providers' => [
+	....
+	....
+	MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+],
+ 
+'aliases' => [
+	....
+	....
+	'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+]
