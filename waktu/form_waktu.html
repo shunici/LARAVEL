@@ -1,0 +1,35 @@
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/locale/id.js"></script>
+  
+  
+  <div class="form-group">
+        <label>Mulai Tanggal</label>      
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="datepicker" name="mulai_tgl">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Akhir Tanggal</label>      
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="datepicker" name="akhir_tgl">
+        </div>
+      </div>
+
+
+
+<script>
+  $('.input-group.date').datetimepicker({
+  locale: 'id',
+  format: 'YYYY-MM-DD hh:mm:ss'
+});
+
+
+</script>
