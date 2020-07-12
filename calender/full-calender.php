@@ -1,16 +1,21 @@
 versi 7 laravel madhatter tidak bisa
 https://stackoverflow.com/questions/61223570/moving-from-laravel-5-8-to-7x-errors-with-maddhatter-laravel-fullcalendar
+https://github.com/nelkasovic/laravel-full-calendar
 
-// composer require laravel-fullcalendar
-<php 
+
+//composer require qlick/laravel-full-calendar
+<?php 
 'providers' => [
 	....
 	....
-	MaddHatter\LaravelFullcalendar\ServiceProvider::class,
+	LaravelFullCalendar\FullCalendarServiceProvider::class,
 ],
  
 'aliases' => [
 	....
 	....
-	'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
+	'Calendar' => LaravelFullCalendar\Facades\Calendar::class,
 ]
+
+	//
+//tambah ini di head html
