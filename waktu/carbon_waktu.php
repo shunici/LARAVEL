@@ -52,5 +52,6 @@ echo $kolom;
 hasilnya 16 menit
 ?>  
 
-
+//menggunakan diblade secara langsung 
+<h1>{{$agenda->judul}} {{\Jenssegers\Date\Date::parse($agenda->mulai_tgl)->format('l')}} </h1>
 
