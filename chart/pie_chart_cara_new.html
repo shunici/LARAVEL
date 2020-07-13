@@ -1,0 +1,36 @@
+cara ini penggunaanya di blade. di kontroller cuma mengambil datanya saja
+
+  
+//taruh ini di head
+<script>  
+google.charts.load('current', {'packages':['corechart']});
+
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart(){
+ var data = google.visualization.arrayToDataTable([
+    ['Nama', 'Stok'],
+             @php
+              foreach($bahans as $bahan) {
+                echo "['".$bahan->nama."', ".$bahan->stok."],";
+              }
+            @endphp
+ ]);
+ var options = {
+  title : 'Persentase Stok Bahan',
+  subtitle: 'Stok : @php echo $bahans[0]->created_at @endphp',
+  is3D: true,
+ };
+ var chart = new google.visualization.PieChart(document.getElementById('stok_pie'));
+ chart.draw(data, options);
+}
+
+</script>
+
+//taruh ini di body
+<div id="stok_pie" style="width:500px; height:350px;"></div>
+
+//controller
+
+$bahans = bahan::all();
+return view(tampilan_blade, compat('bahans'));
