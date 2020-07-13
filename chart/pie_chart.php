@@ -13,7 +13,7 @@ https://www.webslesson.info/2018/06/how-to-use-google-chart-api-in-laravel.html
             $table->timestamps();
         });
 
-==========================
+//////
 
 taruh ini di head
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
