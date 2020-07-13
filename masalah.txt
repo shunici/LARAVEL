@@ -23,3 +23,5 @@ masih belum terpecahkan
 
 
 //tips jika kamu tidak bisa menggunakan if sebagai kondisi, gunakankan lah hasClass dan true
+
+//penggunaan db::raw dalam query sangat penting..kalo bisa ini dipelajari
