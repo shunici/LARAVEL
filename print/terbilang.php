@@ -1,3 +1,7 @@
+mata uang, dan penanggalan waktu bahasa indonesia juga ada di link berikut
+https://karjonoblog.wordpress.com/2019/01/12/cara-membuat-helper-di-laravel-untuk-ditampilkan-melalui-view/
+
+
 buat folder helper atau apapun di subfolder App
 buat file uang_terbilang.php
 
