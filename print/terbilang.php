@@ -53,3 +53,6 @@ Kemudian buka file composer.json dan tambahkan files pada autoload sehingga menj
 
 =====================
 kemudian composer dump-autoload di commandpromt
+   
+   //jika sudah langsung ke blade
+   <h1>  {{terbilang($data_uang)}} </h1>
