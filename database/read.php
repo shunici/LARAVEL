@@ -45,11 +45,19 @@ akses $data dengan foreach sesuai nama yang ingin ditampilkan berdasarkan field 
    $data = DB::table('bahans')->orderBy('kategori', 'desc')->get();
  
 
-//read query berdasarkan tahun dan bulan dan lain lain
-  $database = kehadiran::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)
+//read query berdasarkan tahun dan bulan ini
+$tahun = Carbon::parse(date::now())->format('Y');
+$bulan = Carbon::parse(date::now())->format('m');
+$database = kehadiran::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)
 
+//read berdasarkan request tahun dan bulan
+$tahun = Carbon::parse($request->date_picker)->format('Y');
+$bulan = Carbon::parse($request->date_picker)->format('m');
 
-
+$database = kehadiran::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)
+ 
+ 
+ 
 // mengitung isi tabel yang values nya sama 
    $model->where('status', 'H')->where('karyawan_id', 2)->count();
 //modal adalah tabel database yang isi fieldnya status memiliki value H, kemudian fungsi count() menghitung
