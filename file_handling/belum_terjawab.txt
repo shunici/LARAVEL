@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/46402814/tif-to-pdf-png-enocoding
+
+
+untuk menangani file bersifat tiff diperlukan image magic.
+image magic berfungsi banyak hal...
+https://ourcodeworld.com/articles/read/349/how-to-install-and-enable-the-imagick-extension-in-xampp-for-windows
