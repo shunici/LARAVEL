@@ -118,3 +118,4 @@ Route::post('/pos_data', function(Request $request){
 });
 
 ?>
+ untuk posisi bisa == top, bottom, top-end, top-start, bottom-end, bottom-start, 
