@@ -57,6 +57,13 @@ $bulan = Carbon::parse($request->date_picker)->format('m');
 $database = kehadiran::whereYear('created_at', '=', $tahun)->whereMonth('created_at', '=', $bulan)->get();
  
  
+//tampilkan foto read foto image pada laravel database
+ <img src="{{asset('uploads/gambar_sekolah/'. $data->foto1)}}" style="width:100%; " id="preview1">
+
+
+
+
+
  
 // mengitung isi tabel yang values nya sama 
    $model->where('status', 'H')->where('karyawan_id', 2)->count();
