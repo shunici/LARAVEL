@@ -44,3 +44,7 @@ echo $dt->subSecond();                   // 2012-02-03 00:01:01
 echo $dt->subSeconds(61);                // 2012-02-03 00:00:00
 
 //tahun depan tahun ini 
+$dt = Carbon::now();
+        $tahun = Date::parse($dt->addYears(1))->format('Y');
+        dd($tahun);
+     
