@@ -1,3 +1,5 @@
+semua tentang select2 dan pembahasan yang lengkap
+https://www.it-swarm.dev/id/jquery-select2/
 <?php   
 // bower
 <link rel="stylesheet" href="{{asset('bower_components/select2/dist/css/select2.css')}}">
