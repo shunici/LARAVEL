@@ -1,4 +1,11 @@
 <?php   
+// bower
+<link rel="stylesheet" href="{{asset('bower_components/select2/dist/css/select2.css')}}">
+<link rel="stylesheet" href="{{asset('bower_components/select2/dist/css/select2.min.css')}}">
+<script src="{{asset('bower_components/select2/dist/js/select2.js')}}"></script>
+<script src="{{asset('bower_components/select2/dist/js/select2.min.js')}}"></script>
+  
+  
   
   <div class="form-group">
       <label for="no_telp">Data</label>
