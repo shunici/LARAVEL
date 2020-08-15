@@ -57,3 +57,37 @@
   //kelemahan nya adalah cuma 2 data aja yaitu id dan nama file, belum lagi jika ada proses query lainnya
 
 
+//jika pada tahap pencarian dengan akal akalan supaya bahasa indonesia bisa membuat seperti ini
+// https://www.it-swarm.dev/id/jquery-select2-4/bagaimana-anda-memodifikasi-bahasa-tidak-ada-hasil-di-select2-v4.0/1052504967/
+
+<script>
+   $('.cari').select2({
+                        "language": {
+                        "noResults": function(){
+                            return "<a href='#' class='btn btn-danger'>Belum ada data yang cocok</a>";
+                        }
+                         },
+                        escapeMarkup: function (markup) {
+                            return markup;
+                        },
+                  
+                    placeholder: 'Cari...',
+                    type : 'get',
+                    ajax: {
+                    url: '{{route('mutasi-cari')}}',
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function (data) {
+                        return {
+                        results:  $.map(data, function (item) {
+                            return {
+                            text: item.nama,
+                            id: item.id
+                            }
+                        })
+                        };
+                    },
+                    cache: true
+                    }
+                }); //tutup cari
+</script>
