@@ -93,3 +93,22 @@ https://www.it-swarm.dev/id/jquery-select2/
                     }
                 }); //tutup cari
 </script>
+//pada kondisi edit pada select2 editing
+  //blade view
+<div class="form-group">
+    <label for="siswa_id">Nama Siswa</label>                          
+    <select type="text" class="cari form-control" id="siswa_id" name="siswa_id" style="height: 37px" >
+    <option value="{{$siswa->id}}">{{$siswa->nama}}</option>
+    </select>
+</div>
+      
+//controller
+   public function edit ($id)
+    {
+        $data = mutasi::find($id);
+        $siswa = DB::table('siswas')->where('id', $data->siswa_id)->first();
+        return view ('data_sekolah.mutasi.edit', compact('data', 'siswa'));
+    }   
+                              
+  
+  
