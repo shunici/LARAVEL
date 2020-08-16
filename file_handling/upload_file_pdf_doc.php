@@ -15,7 +15,7 @@ use Image;
          //jika ada foto
          if($request->hasFile('surat_dinas')){
              //maka jalan kan methode simpan_gambar()
-             $file = $this->simpan_file($request->file('surat_dinas'), $request->file('surat_dinas'));
+             $file = $this->simpan_file($request->file('mutasi_surat_dinas'), $request->file('surat_dinas'));
          }
    
           return response()->json([          
@@ -27,16 +27,18 @@ use Image;
        ]);
     }
     
-     private function simpan_file($nama, $file)
+      private function simpan_file($nama, $file)
     {
      $file_gabung = str_slug($nama) . time() . '.' . $file->getClientOriginalExtension();
-     $path = public_path('uploads/mutasi');
-         if(!File::isDirectory($path)) {
-             File::makeDirectory($path, 0777, true, true);
-         }
-    $file->move($path. '/' .$file_gabung);
+     $path = public_path('uploads/mutasi');        
+     $file->move($path, $file_gabung);
      return $file_gabung;
     }
+
+//alternatif simpel tanpa fungsi 
+$fileName = time().'.'.$request->surat_dinas->extension();     
+$request->surat_dinas->move(public_path('uploads'), $fileName);
+
     
    //view blade
       <div class="form-group">
