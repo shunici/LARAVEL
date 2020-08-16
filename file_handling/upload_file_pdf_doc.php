@@ -44,4 +44,13 @@ $request->surat_dinas->move(public_path('uploads'), $fileName);
         <label for="surat_dinas">Surat Rekomendasi Dari Dinas</label>
         <input type="file" class="form-control" id="surat_dinas" name="surat_dinas">
     </div>
-    
+   
+         
+         //controller kondisi saat edit update
+         
+          $data = mutasi::find($id);
+         $surat_dinas = $data->surat_dinas;    
+         if($request->hasFile('surat_dinas')){    
+            !empty($surat_dinas) ? File::delete(public_path('uploads/mutasi/' .$surat_dinas)):null;        
+             $surat_dinas = $this->simpan_file('mutasi_surat_dinas', $request->file('surat_dinas'));
+         }
