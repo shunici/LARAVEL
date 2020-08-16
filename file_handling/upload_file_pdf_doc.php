@@ -12,9 +12,9 @@ use Image;
         ]);
        if ($validator->passes()) {               
          $file = null;
-         //jika ada foto
+         //jika ada file
          if($request->hasFile('surat_dinas')){           
-             $file = $this->simpan_file($request->file('mutasi_surat_dinas'), $request->file('surat_dinas'));
+             $file = $this->simpan_file('mutasi_surat_dinas', $request->file('surat_dinas'));
          }
    
           return response()->json([          
