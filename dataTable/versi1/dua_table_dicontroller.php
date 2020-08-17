@@ -1,4 +1,5 @@
- public function index(Request $request)
+<?php 
+public function index(Request $request)
     {
         if($request->ajax())
         {
