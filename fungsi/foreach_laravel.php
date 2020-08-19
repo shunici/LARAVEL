@@ -1,5 +1,6 @@
 https://stackoverflow.com/questions/3045619/how-to-store-values-from-foreach-loop-into-an-array
-simpan array pada foreach dengan variabel
+<?php
+// simpan array pada foreach dengan variabel
 $items = array();
 foreach($group_membership as $username) {
  $items[] = $username;
