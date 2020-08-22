@@ -1,0 +1,96 @@
+ <table class="table table-bordered  " id="users-table">
+                        <thead>               
+                        <tr>
+                          <th>No</th>                       
+                         <th>Tingkat</th>                    
+                         <th>Laki-Laki</th>
+                         <th>Perempuan</th>
+                         <th>Total</th>
+                         <th>Tahun Ajaran</th>
+                          
+                        </tr>
+                        </thead>
+                        <tbody>
+                
+                        </tbody>
+                        <tfoot>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                         <th></th>
+                        </tfoot>
+                    </table>
+                
+                    <script>
+                      
+                        $(document).ready(function(){
+                        var t = $('#users-table').DataTable({
+                            //nomor
+                            "columnDefs": [ {
+                                "searchable": false,
+                                "orderable": false,
+                                "targets": 0
+                            } ],
+                            "order": [[ 1, 'asc' ]],        
+                             processing : true,
+                             serverside : true,
+                             ajax : "{{route('rekap_siswa-index')}}",
+                             "language": {
+                                 "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Indonesian-Alternative.json"
+                             },
+                             columns : [
+                                    {data : 'id', name : 'id'},
+                                    { data : 'tingkat', name : 'tingkat'},                 
+                                    {data : 'laki_laki', name: 'laki_laki'},                                                                            
+                                    { data : 'perempuan', name : 'perempuan'}, 
+                                    {data : 'total', name: 'total'},                                                                           
+                                    {data : 'tahun_ajaran', name : 'tahun_ajaran', orderable : false, searchable:false, printable:false}                             
+                                
+                                ],
+                                //footer callback
+                                "footerCallback": function ( row, data, start, end, display ) {
+                                        var api = this.api(), data;
+                            
+                                        // converting to interger to find total
+                                        var intVal = function ( i ) {
+                                            return typeof i === 'string' ?
+                                                i.replace(/[\$,]/g, '')*1 :
+                                                typeof i === 'number' ?
+                                                    i : 0;
+                                        };
+                            
+                                        // computing column Total of the complete result                                                                                  
+                                    var kolom2 = api
+                                            .column( 2 )
+                                            .data()
+                                            .reduce( function (a, b) {
+                                                return intVal(a) + intVal(b);
+                                            }, 0 );
+                                            
+                                        var kolom3 = api
+                                            .column( 3 )
+                                            .data()
+                                            .reduce( function (a, b) {
+                                                return intVal(a) + intVal(b);
+                                            }, 0 );
+                                            
+                                    var kolom4 = api
+                                            .column( 4 )
+                                            .data()
+                                            .reduce( function (a, b) {
+                                                return intVal(a) + intVal(b);
+                                            }, 0 );                                                                              
+                                            
+                                        // Update footer by showing the total with the reference of the column index 
+                                    $( api.column( 0 ).footer() ).html('');
+                                        $( api.column( 1 ).footer() ).html('Total');
+                                        $( api.column( 2 ).footer() ).html(kolom2 + " Laki-laki");
+                                        $( api.column( 3 ).footer() ).html(kolom3  + " Perempuan");
+                                        $( api.column( 4 ).footer() ).html(kolom4 + " Siswa");                                
+                                    },                                             
+                             
+                            });  //tutup tabel                                           
+                 
+                        }); // dokumen ready
