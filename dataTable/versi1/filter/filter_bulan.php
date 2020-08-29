@@ -77,4 +77,21 @@
   </script>
   
   
+//lebih disempelkan pada bagian controller
+   public function index(Request $request)
+    {
+        if($request->ajax()){
+          $tahun = date('Y');
+            if(!empty($request->filter)){
+            $tahun = Carbon::parse($request->filter)->format('Y');                                
+            }   
+            $data = kinerja::with('karyawan')->whereYear('created_at', '=', $tahun)->get();
+            return DataTables::of($data)                                                    
+                    ->make(true);
+        }          
+        return view ('data_karyawan.kinerja.index');
+    }
+
+
+?>
 
