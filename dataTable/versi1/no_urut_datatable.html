@@ -1,0 +1,82 @@
+link//
+https://datatables.net/examples/api/counter_columns.html
+           
+           <h3><b>Data Mutasi Siswa</b></h3>    
+         
+                    <table class="table table-bordered  " id="users-table">
+                        <thead>               
+                        <tr>
+                          <th>No</th>   
+                          <th>Id Siswa</th>                    
+                            <th>Nama Siswa</th>
+                            <th>Surat Dinas</th>
+                            <th>Surat Sekolah</th>
+                            <th>Keterangan</th>  
+                            <th>Tahun Ajaran</th>                        
+                            <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                
+                        </tbody>
+                    </table>
+                    
+                   
+                </div>
+                <script>
+                      
+                    $(document).ready(function(){
+                    var t = $('#users-table').DataTable({
+                        //nomor
+                        "columnDefs": [ {
+                            "searchable": false,
+                            "orderable": false,
+                            "targets": 0
+                        } ],
+                        "order": [[ 1, 'asc' ]],
+
+                         processing : true,
+                         serverside : true,
+                         ajax : "{{route('mutasi-index')}}",
+                         "language": {
+                             "url": "//cdn.datatables.net/plug-ins/1.10.20/i18n/Indonesian-Alternative.json"
+                         },
+                         columns : [
+                             {data : 'id', name : 'id'},
+                             { data : 'siswa_id', name : 'siswa_id'}, 
+                             { data : 'siswa', name : 'siswa'},                            
+                             {data : 'surat_dinas', name : 'surat_dinas'},  
+                             {data : 'surat_sekolah', name : 'surat_sekolah'},               
+                             {data : 'keterangan', name: 'keterangan'},
+                             {data : 'tahun_ajaran', name : 'tahun_ajaran'},
+                             {data : 'aksi', name : 'aksi', orderable : false, searchable:false, printable:false}
+                           
+                         ],
+                         dom: 'Bfrtip',
+                         buttons: [                             
+                                {
+                                    extend:    'print',
+                                    text:      '<i class="fa fa-file-print-o"> </i> Print',
+                                    title : '',
+                                    titleAttr: 'Print',
+                                    orientation: 'landscape',
+                                    messageTop: '<style media="print">@page {size: auto;margin: 0;}body{margin: 0mm 10mm 10mm 10mm;}</style><div class="kop" style="text-align: center; width: 100%"><div class="logo" style="width: 20%; float: left;"><img src="../dist/img/kab_banjar.PNG" style="width: 100px"></div><div class="text" style="width: 80%; font-family: arial;"><p><font size="5"><b>DINAS PENDIDIKAN</b></font><br> <font size ="4">KABUPATEN BANJAR </font>            <br>PROVINSI KALIMANTAN SELATAN <br> Jalan Pendidikan No. 07 Martapura 70614 Telp. (0511) 4721720 Fax. (0511) 4721078 </p><font size="3"><b style="text-align: center">Laporan Mutasi Siswa</b></font></div></div> <br>',
+                                    messageBottom: '<div class="text-footer" style=" width: 100%; "><div class="satu" style="width: 20%; float: left; background-color: yellow"></div><div class="dua" style="width: 50%; float: left; background-color: red"></div><div class="tiga" style="width: 30%; float: right; font-size: 12pt"><p style="text-align: left"> <font size="2"> <br>  <?php echo \Carbon\Carbon::parse(Date::now())->format('l, j F Y') ?> <br>Mengetahui, <br><br><br> <?php echo auth::user()->name;  ?> </font></p></div></div>',
+                                    //untuk menyimpan kolom
+                                    exportOptions: {
+                                        columns: [ 0, 1, 2,5,6]
+                                    }
+                                }
+                            ], //tutup button                                              
+                         
+                        }); //tutup datatable 
+                        //nomor urut
+                        t.on('order.dt search.dt', function () {
+                            t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                                cell.innerHTML = i+1;
+                                t.cell(cell).invalidate('dom');
+                            });
+                        }).draw();                
+             
+                    }); //tutup dokumen ready                                                                 
+                     </script>    
