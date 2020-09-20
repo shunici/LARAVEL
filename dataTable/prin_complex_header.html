@@ -1,0 +1,19 @@
+link
+https://stackoverflow.com/questions/55294594/datatable-print-complex-header-print-preview
+
+https://datatables.net/forums/discussion/38710/how-to-export-and-print-multiple-headers-in-datatables
+
+javascript
+buttons: [
+  {
+    extend: 'print',
+    customize: function ( win ) {
+      $(win.document.body).find( 'thead' ).prepend('<div class="header-print">' + $('#dt-header').val() + '</div>');
+  }
+  
+  css
+  @media print {
+  .header-print {
+    display: table-header-group;
+  }
+}
