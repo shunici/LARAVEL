@@ -1,0 +1,21 @@
+// sumber https://packagist.org/packages/fzaninotto/faker
+
+composer require fzaninotto/faker
+==============================================
+php artisan make:factory isian_automatis
+==============================================
+'nama' => $faker->name,
+'agama' => $faker->address
+=====================================
+php artisan make:seeder isian_automatis
+====================================
+$count = 20;
+factory(tabel::class, $count)->create();
+=========================================
+ $this->call(isian_automatis::class);
+===============================
+composer dump-autoload
+=================================
+php artisan db:seed
+atau
+php artisan db:seed --class=isian_automatis
