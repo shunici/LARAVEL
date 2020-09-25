@@ -68,3 +68,16 @@ for($i = 1; $i<90; $i++) {
         }
         
         //seketika kemudian berubah jika belangan genap namanya berubah jadi amaco
+
+//dibawah ini adalah ketika terjadi kesalahan misalnya kita sudah membuat data(insert) tapi ada kolom yang ketinggalan, katakan lah kolom created_at dan updated_at,
+
+  $database =\App\kehadiran::whereMonth('tanggal', '=', '08')->get();
+        foreach($database as $data){
+            $id = $data->id;
+            $edit = \App\kehadiran::find($id);
+            if($edit){
+                $edit->created_at = $edit->tanggal;
+                $edit->updated_at = $edit->tanggal;
+                $edit->save();
+            }
+        }
